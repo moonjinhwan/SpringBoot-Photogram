@@ -51,6 +51,5 @@ public class AuthController {
 			User userEntity = authService.회원가입(user);
 			return "/auth/signin";
 		}
-	}
-	
+	}	
 }

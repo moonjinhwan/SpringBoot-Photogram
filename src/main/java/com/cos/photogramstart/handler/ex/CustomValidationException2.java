@@ -2,18 +2,16 @@ package com.cos.photogramstart.handler.ex;
 
 import java.util.Map;
 
-import javassist.SerialVersionUID;
-
-public class CustomValidationException extends RuntimeException{
+public class CustomValidationException2 extends RuntimeException{
 	
 	private Map<String, String> errorMap;
 	
-	public CustomValidationException(String message, Map<String, String> errorMap) {
+	public CustomValidationException2(String message, Map<String, String> errorMap) {
 		super(message);
 		this.errorMap = errorMap;
 	}
 	
-	public CustomValidationException(String message) {
+	public CustomValidationException2(String message) {
 		super(message);
 	}
 	
