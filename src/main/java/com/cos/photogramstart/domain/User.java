@@ -23,8 +23,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(length = 20,  unique = true)
-	private String username; 
+	@Column(length = 20, unique = true)
+	private String username;
 	@Column(nullable = false)
 	private String password;
 
@@ -36,14 +36,14 @@ public class User {
 	private String email;
 	private String phone;
 	private String gender;
-	
+
 	private String profileImageUrl;
 	private String role;
-	
+
 	private LocalDateTime createTime;
-	
+
 	@PrePersist
 	public void createDate() {
-		this.createTime = LocalDateTime.now(); 
+		this.createTime = LocalDateTime.now();
 	}
 }

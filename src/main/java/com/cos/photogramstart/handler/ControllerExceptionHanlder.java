@@ -23,7 +23,7 @@ public class ControllerExceptionHanlder {
 	
 	@ExceptionHandler(CustomValidationException.class)
 	public String validationException(CustomValidationException e) {
-		return Script.back(e.getMessage());
+		return Script.back(e.getErrorMap().toString());
 	}
 	
 	@ExceptionHandler(CustomValidationException2.class)

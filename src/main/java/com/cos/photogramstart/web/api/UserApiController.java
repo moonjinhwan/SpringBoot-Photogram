@@ -26,19 +26,19 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class UserApiController {
-	
+
 	private final UserService userService;
-	
+
 	@PutMapping("/api/user/{id}")
-	public CMRespDto<?> update(@PathVariable int id ,@Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
+	public CMRespDto<?> update(@PathVariable int id, @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
-		if(bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			Map<String, String> errorMap = new HashMap<>();
-			for(FieldError error : bindingResult.getFieldErrors()) {
+			for (FieldError error : bindingResult.getFieldErrors()) {
 				errorMap.put(error.getField(), error.getDefaultMessage());
 			}
 			throw new CustomValidationException("유효성 검사 실패함", errorMap);
-		}else {
+		} else {
 			User user = userUpdateDto.toEntity();
 			User userEntity = userService.update(id, user);
 			principalDetails.setUser(userEntity);
