@@ -2,6 +2,8 @@ package com.cos.photogramstart.domain;
 
 import javax.validation.constraints.NotBlank;
 
+import com.cos.photogramstart.domain.user.User;
+
 import lombok.Data;
 
 @Data

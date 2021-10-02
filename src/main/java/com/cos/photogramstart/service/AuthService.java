@@ -5,8 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.cos.photogramstart.domain.User;
-import com.cos.photogramstart.domain.UserRepository;
+import com.cos.photogramstart.domain.user.User;
+import com.cos.photogramstart.domain.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

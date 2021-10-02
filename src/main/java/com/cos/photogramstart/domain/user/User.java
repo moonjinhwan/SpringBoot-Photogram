@@ -1,4 +1,4 @@
-package com.cos.photogramstart.domain;
+package com.cos.photogramstart.domain.user;
 
 import java.time.LocalDateTime;
 

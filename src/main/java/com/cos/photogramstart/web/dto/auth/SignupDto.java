@@ -3,7 +3,7 @@ package com.cos.photogramstart.web.dto.auth;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.cos.photogramstart.domain.User;
+import com.cos.photogramstart.domain.user.User;
 
 import lombok.Data;
 
