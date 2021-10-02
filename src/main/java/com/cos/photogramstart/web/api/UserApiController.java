@@ -30,7 +30,7 @@ public class UserApiController {
 	private final UserService userService;
 
 	@PutMapping("/api/user/{id}")
-	public CMRespDto<?> update(@PathVariable int id, @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
+	public ResponseEntity<?> update(@PathVariable int id, @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		if (bindingResult.hasErrors()) {
 			Map<String, String> errorMap = new HashMap<>();
@@ -42,7 +42,7 @@ public class UserApiController {
 			User user = userUpdateDto.toEntity();
 			User userEntity = userService.update(id, user);
 			principalDetails.setUser(userEntity);
-			return new CMRespDto<>(1, "수정완료", userEntity);
+			return new ResponseEntity<>(new CMRespDto<>(1, "수정완료", userEntity), HttpStatus.OK);
 		}
 	}
 }
