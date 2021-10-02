@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="../layout/header.jsp"%>
 
@@ -10,15 +9,12 @@
 
 		<!--유저이미지-->
 		<div class="profile-left">
-			<div class="profile-img-wrap story-border"
-				onclick="popup('.modal-image')">
+			<div class="profile-img-wrap story-border" onclick="popup('.modal-image')">
 				<form id="userProfileImageForm">
-					<input type="file" name="profileImageFile" style="display: none;"
-						id="userProfileImageInput" />
+					<input type="file" name="profileImageFile" style="display: none;" id="userProfileImageInput" />
 				</form>
 
-				<img class="profile-image" src="#"
-					onerror="this.src='/images/person.jpeg'" id="userProfileImage" />
+				<img class="profile-image" src="#" onerror="this.src='/images/person.jpeg'" id="userProfileImage" />
 			</div>
 		</div>
 		<!--유저이미지end-->
@@ -63,35 +59,16 @@
 			<div class="tab-1-content-inner">
 
 				<!--아이템들-->
-
-
-				<div class="img-box">
-					<a href=""> <img src="/images/home.jpg" />
-					</a>
-					<div class="comment">
-						<a href="#" class=""> <i class="fas fa-heart"></i><span>0</span>
+				<c:forEach var="image" items="${user.images}">
+					<div class="img-box">
+						<a href=""> <img src="/upload/${image.postImageUrl}" />
 						</a>
+						<div class="comment">
+							<a href="#" class=""> <i class="fas fa-heart"></i><span>0</span>
+							</a>
+						</div>
 					</div>
-				</div>
-
-				<div class="img-box">
-					<a href=""> <img src="/images/home.jpg" />
-					</a>
-					<div class="comment">
-						<a href="#" class=""> <i class="fas fa-heart"></i><span>0</span>
-						</a>
-					</div>
-				</div>
-
-				<div class="img-box">
-					<a href=""> <img src="/images/home.jpg" />
-					</a>
-					<div class="comment">
-						<a href="#" class=""> <i class="fas fa-heart"></i><span>0</span>
-						</a>
-					</div>
-				</div>
-
+				</c:forEach>
 				<!--아이템들end-->
 			</div>
 		</div>
@@ -132,7 +109,7 @@
 
 			<div class="subscribe__item" id="subscribeModalItem-1">
 				<div class="subscribe__img">
-					<img src="#" onerror="this.src='/images/person.jpeg'"/>
+					<img src="#" onerror="this.src='/images/person.jpeg'" />
 				</div>
 				<div class="subscribe__text">
 					<h2>love</h2>
@@ -145,7 +122,7 @@
 
 			<div class="subscribe__item" id="subscribeModalItem-2">
 				<div class="subscribe__img">
-					<img src="#" onerror="this.src='/images/person.jpeg'"/>
+					<img src="#" onerror="this.src='/images/person.jpeg'" />
 				</div>
 				<div class="subscribe__text">
 					<h2>ssar</h2>

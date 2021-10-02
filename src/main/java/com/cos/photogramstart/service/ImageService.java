@@ -12,6 +12,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Value;
 
 import lombok.RequiredArgsConstructor;
@@ -24,10 +26,10 @@ public class ImageService {
 	@Value("${file.path}")
 	private String uploadFolder;
 
-	
+	@Transactional
 	public void 이미지저장(ImageUploadDto imageUploadDto, PrincipalDetails principalDetails) {
-		String uuid = UUID.randomUUID().toString();
-		String fileName = uuid+"_"+imageUploadDto.getFile().getName();//파일명 만들기
+		UUID uuid = UUID.randomUUID();
+		String fileName = uuid+"_"+imageUploadDto.getFile().getOriginalFilename();//파일명 만들기
 		//외부파일 경로 만들기
 		Path imageFilePath = Paths.get(uploadFolder+fileName);
 		try {
@@ -38,4 +40,5 @@ public class ImageService {
 		Image image = imageUploadDto.toEntity(fileName, principalDetails.getUser());
 		imageRepository.save(image);
 	}
+	 
 }

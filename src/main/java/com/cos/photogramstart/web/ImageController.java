@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cos.photogramstart.config.auth.PrincipalDetails;
+import com.cos.photogramstart.handler.ex.CustomValidationException;
 import com.cos.photogramstart.service.ImageService;
 import com.cos.photogramstart.web.dto.image.ImageUploadDto;
 
@@ -34,6 +35,9 @@ public class ImageController {
 	
 	@PostMapping("/image")
 	public String imageUpload(@AuthenticationPrincipal PrincipalDetails principalDetails, ImageUploadDto imageUploadDto) {
+		if(imageUploadDto.getFile() ==null) {
+			throw new CustomValidationException("이미지가 첨부되지 않았습니다.", null);
+		}
 		imageService.이미지저장(imageUploadDto, principalDetails);
 		return "redirect:/user/"+principalDetails.getUser().getId();
 	}
